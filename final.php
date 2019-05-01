@@ -29,19 +29,22 @@
     <div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
         <div class="container">
             <div class="uk-card uk-card-secondary uk-card-hover uk-card-body">
-                <h2 class="uk-card-title">Test Your PHP Knowledge</h2>
-                <p>Perform The <strong>Quiz</strong> And Know How Much You Know PHP</p>
-                <ul class="uk-list uk-list-divider">
-                    <li><strong>Number Of Questions :</strong> 5</li>
-                    <li><strong>Type :</strong>Multiple Choice</li>
-                    <li><strong>Estimated Time</strong> 4 Minutes</li>
-                </ul>
-                <a class="uk-button uk-button-default" href="question.php?n=1">Start Quiz</a>
+                <div style="text-align: center;">
+                    <h3>Congratulations ! </h3>
+                </div>
+                <hr>
+        
+                <div style="text-align: center;">
+                    <h5>You Have Completed The Quiz ! ! </h5>
+                    <h5>You Score Is : <strong>5</strong>  </h5><br><br>
+                <a class="uk-button uk-button-default" href="question.php?n=1">Take Again</a>
+
+                </div>
             </div>
         </div>
     </div>
 
-
+   
 </body>
 
 

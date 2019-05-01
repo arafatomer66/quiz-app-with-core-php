@@ -29,14 +29,14 @@
     <div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
         <div class="container">
             <div class="uk-card uk-card-secondary uk-card-hover uk-card-body">
-                <h2 class="uk-card-title">Test Your PHP Knowledge</h2>
-                <p>Perform The <strong>Quiz</strong> And Know How Much You Know PHP</p>
+                <h2 class="uk-card-title">Add </h2>
+                <!-- <p>Perform The <strong>Quiz</strong> And Know How Much You Know PHP</p>
                 <ul class="uk-list uk-list-divider">
                     <li><strong>Number Of Questions :</strong> 5</li>
                     <li><strong>Type :</strong>Multiple Choice</li>
                     <li><strong>Estimated Time</strong> 4 Minutes</li>
                 </ul>
-                <a class="uk-button uk-button-default" href="question.php?n=1">Start Quiz</a>
+                <a class="uk-button uk-button-default" href="question.php?n=1">Start Quiz</a> -->
             </div>
         </div>
     </div>
