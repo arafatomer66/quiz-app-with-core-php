@@ -11,7 +11,7 @@
     <title>Quizzer</title>
 </head>
 
-<body>
+<body >
     <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
         <nav class="uk-navbar-container" uk-navbar style="position: relative; z-index: 980;">
             <div class="container">
@@ -29,17 +29,55 @@
     <div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
         <div class="container">
             <div class="uk-card uk-card-secondary uk-card-hover uk-card-body">
-                <h2 class="uk-card-title">Add </h2>
-                <!-- <p>Perform The <strong>Quiz</strong> And Know How Much You Know PHP</p>
-                <ul class="uk-list uk-list-divider">
-                    <li><strong>Number Of Questions :</strong> 5</li>
-                    <li><strong>Type :</strong>Multiple Choice</li>
-                    <li><strong>Estimated Time</strong> 4 Minutes</li>
-                </ul>
-                <a class="uk-button uk-button-default" href="question.php?n=1">Start Quiz</a> -->
+                <h2 class="uk-card-title" style="text-align: center;">Add A Question </h2>
+      
+                <hr>
+                <form method="post" action="add.php" > 
+                    <fieldset class="uk-fieldset">
+
+                        <div class="uk-margin">
+                            <input class="uk-input" type="text" placeholder="Question Number" name="question_number">
+                        </div>
+
+                        <div class="uk-margin">
+                            <input class="uk-input" type="text" placeholder="Question" name="question_number">
+                        </div>
+
+                        <div class="uk-margin">
+                            <input class="uk-input" type="text" placeholder="Choice #1" name="choice1">
+                        </div>
+
+                        <div class="uk-margin">
+                            <input class="uk-input" type="text" placeholder="Choice #2" name="choice2">
+                        </div>
+
+                        <div class="uk-margin">
+                            <input class="uk-input" type="text" placeholder="Choice #3" name="choice3">
+                        </div>
+
+                        <div class="uk-margin">
+                            <input class="uk-input" type="text" placeholder="Choice #4" name="choice4">
+                        </div>
+
+                        <div class="uk-margin">
+                            <input class="uk-input" type="text" placeholder="Choice #5" name="choice5">
+                        </div>
+
+                        <div class="uk-margin">
+                            <input class="uk-input" type="text" placeholder="Correct Choice" name="correct_choice">
+                        </div>
+
+                        <div class="uk-margin">
+                            <input class="uk-input" type="submit" value="Submit">
+                        </div>
+                    </fieldset>
+                </form>
+
             </div>
         </div>
     </div>
+
+    <br><br><br><br>
 
 
 </body>
