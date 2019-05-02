@@ -1,4 +1,5 @@
 <?php include 'database.php' ; ?>
+<?php session_start(); ; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,9 +39,11 @@
         
                 <div style="text-align: center;">
                     <h5>You Have Completed The Quiz ! ! </h5>
-                    <h5>You Score Is : <strong>5</strong>  </h5><br><br>
+                    <h5>You Score Is : <strong><?php 
+                    echo $_SESSION['score'] ;
+                    session_destroy();
+                     ?></strong>  </h5><br><br>
                 <a class="uk-button uk-button-default" href="question.php?n=1">Take Again</a>
-
                 </div>
             </div>
         </div>

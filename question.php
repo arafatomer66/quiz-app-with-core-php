@@ -1,6 +1,9 @@
 <?php include 'database.php'; ?>
-
+<?php session_start(); ?>
 <?php
+$sql =  "SELECT * FROM questions";
+$result = $conn->query($sql)  or die($conn->error);
+$total = $result->num_rows;
 
 //questions
 $number =  (int)$_GET['n'];
@@ -8,18 +11,18 @@ $query =  "SELECT * FROM questions WHERE question_number = $number ";
 $result = $conn->query($query)  or die($conn->error);
 $question = $result->fetch_assoc();
 
+
+
 //choices 
 
 $query =  "SELECT * FROM choices WHERE question_number = $number ";
 $choices = $conn->query($query)  or die($conn->error);
-
 
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,7 +32,6 @@ $choices = $conn->query($query)  or die($conn->error);
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Quizzer</title>
 </head>
-
 <body>
     <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
         <nav class="uk-navbar-container" uk-navbar style="position: relative; z-index: 980;">
@@ -49,19 +51,17 @@ $choices = $conn->query($query)  or die($conn->error);
         <div class="container">
             <div class="uk-card uk-card-secondary uk-card-hover uk-card-body">
                 <div style="text-align: center;">
-                    <h5>Question 1 Of 5</h5>
+                    <h5> Total Question <?php echo $total ?></h5>
                 </div>
                 <hr>
                 <form method="post" action="process.php">
                     <fieldset class="uk-fieldset">
-
                         <legend class="uk-legend">
                             <?php echo $question['text'] ?>
                         </legend>
-
                         <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
                             <ul class="uk-list">
-                            <input name="mycheckbox" type="hidden" value="0" />
+                            
                                 <?php while($row = $choices->fetch_assoc()): ?>
                                 <li>
                                     <label><input class="uk-radio" value="<?php echo $row['id']; ?>" type="radio" name="choice" > <?php echo $row['text']; ?> </label><br>
@@ -69,24 +69,17 @@ $choices = $conn->query($query)  or die($conn->error);
                                 <?php endwhile ; ?>
                                 <br><br>
                             </ul>
-
+                            <input name="number" type="hidden" value="<?php echo $number ; ?>" />
                         </div>
                         <div class="uk-margin">
                             <input class="uk-input" type="submit" value="Submit">
                         </div>
-
                     </fieldset>
                 </form>
-
-
             </div>
         </div>
     </div>
-
-
 </body>
-
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.4/js/uikit.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.4/js/uikit-icons.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

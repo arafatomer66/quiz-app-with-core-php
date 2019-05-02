@@ -1,11 +1,10 @@
+<?php include 'database.php'; ?>
 
-<?php include 'database.php' ; ?>
-
-<?php 
-   $query =  "SELECT * FROM questions ";
-   $results = $conn->query($query)  or die($conn->error);
-   $total = $results->num_rows ;
- ?>
+<?php
+$query =  "SELECT * FROM questions ";
+$results = $conn->query($query)  or die($conn->error);
+$total = $results->num_rows;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,9 +24,15 @@
             <div class="container">
                 <div class="uk-navbar-left">
                     <ul class="uk-navbar-nav">
-                        <li class="uk-active"><a href="#"><i><b>
+                        <li class="uk-active">
+                            <a href="#">
+                                <i>
+                                    <b>
                                         <h4>Quizzer App</h4>
-                                    </b></a></i></li>
+                                    </b>
+                                </i>
+                            </a>   
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -40,9 +45,9 @@
                 <h2 class="uk-card-title">Test Your PHP Knowledge</h2>
                 <p>Perform The <strong>Quiz</strong> And Know How Much You Know PHP</p>
                 <ul class="uk-list uk-list-divider">
-                    <li><strong>Number Of Questions :</strong> <?php echo $total ; ?> </li>
+                    <li><strong>Number Of Questions :</strong> <?php echo $total; ?> </li>
                     <li><strong>Type :</strong>Multiple Choice</li>
-                    <li><strong>Estimated Time</strong> <?php echo $total * .5 ; ?> Minutes</li>
+                    <li><strong>Estimated Time</strong> <?php echo $total * .5; ?> Minutes</li>
                 </ul>
                 <a class="uk-button uk-button-default" href="question.php?n=1">Start Quiz</a>
             </div>
