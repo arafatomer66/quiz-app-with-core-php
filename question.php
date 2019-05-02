@@ -1,3 +1,19 @@
+<?php include 'database.php'; ?>
+
+<?php
+$number =  (int)$_GET['n'];
+$query =  "SELECT * FROM questions WHERE question_number = $number ";
+$result = $conn->query($query)  or die($conn->error);
+$question = $result->fetch_assoc();
+
+
+
+$query =  "SELECT * FROM choices WHERE question_number = $number ";
+$choices = $conn->query($query)  or die($conn->error);
+// $row = $result->fetch_assoc();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,31 +52,26 @@
                 <form method="post" action="process.php">
                     <fieldset class="uk-fieldset">
 
-                        <legend class="uk-legend">Which of the following magic constant of PHP returns function name?</legend>
+                        <legend class="uk-legend">
+                            <?php echo $question['text'] ?>
+                        </legend>
 
                         <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
                             <ul class="uk-list">
+                            <input name="mycheckbox" type="hidden" value="0" />
+                                <?php while($row = $choices->fetch_assoc()): ?>
                                 <li>
-                                    <label><input class="uk-radio" type="radio" name="choice" checked> _LINE_</label><br>
+                                    <label><input class="uk-radio" value="<?php echo $row['id']; ?>" type="radio" name="choice" > <?php echo $row['text']; ?> </label><br>
                                 </li>
-                                <li>
-                                    <label><input class="uk-radio" type="radio" name="choice"> _FILE_</label>
-                                </li>
-                                <li>
-                                    <label><input class="uk-radio" type="radio" name="choice"> _FUNCTION_ </label>
-                                </li>
-                                <li>
-                                    <label><input class="uk-radio" type="radio" name="choice"> _CLASS_</label>
-                                </li>
-                                   <br><br>
-                                
+                                <?php endwhile ; ?>
+                                <br><br>
                             </ul>
-                            
+
                         </div>
                         <div class="uk-margin">
-                        <input class="uk-input" type="submit" value="Submit">
+                            <input class="uk-input" type="submit" value="Submit">
                         </div>
-                        
+
                     </fieldset>
                 </form>
 
