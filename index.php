@@ -1,5 +1,11 @@
 
 <?php include 'database.php' ; ?>
+
+<?php 
+   $query =  "SELECT * FROM questions ";
+   $results = $conn->query($query)  or die($conn->error);
+   $total = $results->num_rows ;
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,9 +40,9 @@
                 <h2 class="uk-card-title">Test Your PHP Knowledge</h2>
                 <p>Perform The <strong>Quiz</strong> And Know How Much You Know PHP</p>
                 <ul class="uk-list uk-list-divider">
-                    <li><strong>Number Of Questions :</strong> 5</li>
+                    <li><strong>Number Of Questions :</strong> <?php echo $total ; ?> </li>
                     <li><strong>Type :</strong>Multiple Choice</li>
-                    <li><strong>Estimated Time</strong> 4 Minutes</li>
+                    <li><strong>Estimated Time</strong> <?php echo $total * .5 ; ?> Minutes</li>
                 </ul>
                 <a class="uk-button uk-button-default" href="question.php?n=1">Start Quiz</a>
             </div>

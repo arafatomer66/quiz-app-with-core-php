@@ -1,18 +1,21 @@
 <?php include 'database.php'; ?>
 
 <?php
+
+//questions
 $number =  (int)$_GET['n'];
 $query =  "SELECT * FROM questions WHERE question_number = $number ";
 $result = $conn->query($query)  or die($conn->error);
 $question = $result->fetch_assoc();
 
-
+//choices 
 
 $query =  "SELECT * FROM choices WHERE question_number = $number ";
 $choices = $conn->query($query)  or die($conn->error);
-// $row = $result->fetch_assoc();
+
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
