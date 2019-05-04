@@ -20,7 +20,7 @@
                 <div class="uk-navbar-left">
                     <ul class="uk-navbar-nav">
                         <li class="uk-active"><a href="#"><i><b>
-                                        <h4>Quizzer App</h4>
+                                        <h4><b>Quizzer App</h4>
                                     </b></a></i></li>
                     </ul>
                 </div>
